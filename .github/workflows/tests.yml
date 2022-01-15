@@ -20,7 +20,14 @@ jobs:
       with:
         go-version: 1.17
 
-    # TODO: generate proto
+    - name: Install protoc
+      run: apt install -y protobuf-compiler
+
+    - name: Install the Go protocol buffers plugin
+      run: go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
+    - name: Generate protobuf files
+      run: protoc --go_out=. --go_opt=paths=source_relative pb/addressbook.proto
 
     - name: Build
       run: go build -v ./...
