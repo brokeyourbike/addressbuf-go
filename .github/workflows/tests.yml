@@ -29,8 +29,5 @@ jobs:
     - name: Generate protobuf files
       run: protoc --go_out=. --go_opt=paths=source_relative ./pb/addressbook.proto && ls ./pb
 
-    - name: Build
-      run: go build -v ./...
-
     - name: Test
       run: go test -race -covermode=atomic -shuffle=on -coverprofile=coverage.out -v ./...
