@@ -27,7 +27,7 @@ jobs:
       run: go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
     - name: Generate protobuf files
-      run: protoc --go_out=. --go_opt=paths=source_relative pb/addressbook.proto
+      run: protoc --go_out=. --go_opt=paths=source_relative ./pb/addressbook.proto && ls ./pb
 
     - name: Build
       run: go build -v ./...
