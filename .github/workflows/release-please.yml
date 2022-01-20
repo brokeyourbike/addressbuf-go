@@ -16,6 +16,3 @@ jobs:
         with:
           release-type: go
           bump-minor-pre-major: true
-
-      - uses: actions/checkout@v2
-        if: ${{ steps.release.outputs.release_created }}
